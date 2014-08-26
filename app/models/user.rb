@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates_inclusion_of :status, :in => %w(student pending_mentor mentor admin)
 
   after_create :send_welcome_email
 

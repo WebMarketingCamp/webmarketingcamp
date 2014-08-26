@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+
+  get 'mentors', :to => 'mentors#index'
+  get 'mentors/sign_up', :to => 'mentors#new'
 
   root 'home#index'
 
   resource :account, only: :show
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.
