@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Webmarketingcamp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= render 'layouts/sessions' %>
+  <head>
+    <title>Webmarketingcamp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
-<%= yield %>
 
-</body>
+  <body>
+
+    <div class="container"><!-- container start -->
+
+      <nav class="navbar navbar-default navbar-fixed-top navbar-transparent" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">WebMarketingCamp</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to 'Home', root_path %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <%= render 'layouts/sessions' %>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+  </div><!-- container end -->
+
+  </body>
+
+
+
 </html>
