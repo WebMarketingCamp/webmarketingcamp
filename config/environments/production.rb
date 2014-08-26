@@ -1,6 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { host: 'www.my-awesome-website.com' }
+  config.action_mailer.default_url_options = { host: 'webmarketingcamp.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mandrillapp.com',
+    port:                 465,
+    domain:               'heroku.com',
+    user_name:            'mathieubarascou@gmail.com',
+    password:             'XnWU__KCJCXqGb8egffhZw',
+    authentication:       :plain,
+    ssl:                  true
+  }
 
 
   # Code is not reloaded between requests.
