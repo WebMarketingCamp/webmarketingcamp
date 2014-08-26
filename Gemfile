@@ -8,6 +8,9 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem 'bootstrap-sass'
+gem 'rails_12factor'
+
+gem 'thin'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
