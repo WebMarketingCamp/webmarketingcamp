@@ -1,5 +1,15 @@
 <h1><%= @course.title %></h1>
 
-<h3>Course details</h3>
+<h2>Course details</h2>
 
 <p><strong>Description : </strong><%= @course.description %></p>
+
+</br>
+
+<h2>Le modules du cours</h2>
+<% @course.units.reverse.each do |unit| %>
+    <p>
+      <strong><%= link_to unit.title, unit_path(unit) %></strong></br>
+      <%= unit.description %>
+    </p>
+  <% end %>
