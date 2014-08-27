@@ -5,8 +5,7 @@
       <tr>
         <div class="mentor-block">
         <img src="http://d1ijjxzthis87e.cloudfront.net/static/main/images/homepage_v2/mentors/charlene.280d3d074b14.png">
-        <td><%= mentor.first_name %></td>
-        <td><%= mentor.last_name %></td>
+        <td><%= link_to mentor.full_name, mentor_path(mentor) %></td>
         </div>
       </tr>
     <% end %>

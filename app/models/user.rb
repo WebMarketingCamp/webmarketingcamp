@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
 
   after_create :send_welcome_email
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 
   private
 

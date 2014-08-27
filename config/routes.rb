@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'mentors', :to => 'mentors#index'
-  get 'mentors/sign_up', :to => 'mentors#new'
+  resources :mentors
 
-  get 'courses', :to => 'courses#index'
+  resources :courses
 
   resource :account, only: :show
 

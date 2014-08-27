@@ -4,7 +4,7 @@
     <% @courses.each do |course| %>
       <tr>
         <div class="course-block">
-        <h3><%= course.title %></h3>
+        <h3><%= link_to course.title, course_path(course) %></h3>
         <td><%= course.description %></td>
         <td>
           <p>

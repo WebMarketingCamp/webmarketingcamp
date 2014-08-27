@@ -7,4 +7,8 @@ class MentorsController < ApplicationController
   def new
   end
 
+  def show
+    @mentor = User.find(params[:id])
+  end
+
 end
