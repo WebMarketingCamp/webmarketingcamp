@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
+  root 'home#index'
+
   get 'mentors', :to => 'mentors#index'
   get 'mentors/sign_up', :to => 'mentors#new'
 
-  root 'home#index'
+  get 'courses', :to => 'courses#index'
 
   resource :account, only: :show
 

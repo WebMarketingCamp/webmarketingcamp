@@ -1,0 +1,20 @@
+<div>
+
+
+    <% @courses.each do |course| %>
+      <tr>
+        <div class="course-block">
+        <h3><%= course.title %></h3>
+        <td><%= course.description %></td>
+        <td>
+          <p>
+            <em> course mentored by</em>
+            <img height="42" width="42" src="http://d1ijjxzthis87e.cloudfront.net/static/main/images/homepage_v2/mentors/charlene.280d3d074b14.png">
+          </p>
+        </td>
+        </div>
+      </tr>
+    <% end %>
+
+
+</div>
