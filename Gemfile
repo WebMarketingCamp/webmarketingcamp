@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'devise'
 
 gem 'rails_admin'
+gem "cancancan"
 
 gem 'figaro', '~> 0.7.0'
 
