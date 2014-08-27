@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+gem 'rails_admin'
+
 gem 'figaro', '~> 0.7.0'
 
 gem 'paperclip'
