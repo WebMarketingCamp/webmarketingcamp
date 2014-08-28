@@ -7,9 +7,13 @@
 </br>
 
 <div>
-    <%= form_for([@course, @course.enrollments.build]) do |b| %>
-      <%= b.submit("Enroll") %>
-    <% end %>
+  <% if @course.users.exclude?(current_user) %>
+      <%= form_for([@course, @course.enrollments.build]) do |b| %>
+      <%= b.submit "Enroll" , :class => 'btn btn-success' %>
+      <% end %>
+    <% else %>
+      <p class="btn btn-info disabled">Enrolled</p>
+  <%end%>
 </div>
 
 <h2>Le modules du cours</h2>
