@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :enrollments
   end
 
-  resources :units
+  resources :units do
+    resources :assignments
+  end
 
   resources :guides
 

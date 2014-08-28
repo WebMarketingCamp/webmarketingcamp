@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  instructions: MyText
+  unit_id: 
+
+two:
+  instructions: MyText
+  unit_id: 
