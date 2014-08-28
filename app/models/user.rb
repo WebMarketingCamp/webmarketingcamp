@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :courses, foreign_key: :owner_id
   has_many :units
   has_many :enrollments
+  has_many :guides
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

@@ -3,3 +3,11 @@
 <h3>Unit details</h3>
 
 <p><strong>Description : </strong><%= @unit.description %></p>
+
+<h2>Guides du cours</h2>
+<% @unit.guides.each do |guide| %>
+    <p>
+      <strong><%= link_to guide.title, unit_path(guide) %></strong></br>
+      <%= guide.description %>
+    </p>
+  <% end %>

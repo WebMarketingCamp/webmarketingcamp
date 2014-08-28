@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :units
 
+  resources :guides
+
   resource :account, only: :show
 
 
