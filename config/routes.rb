@@ -7,11 +7,14 @@ Rails.application.routes.draw do
 
   resources :mentors
 
-  resources :courses
+  resources :courses do
+    resources :enrollments
+  end
 
   resources :units
 
   resource :account, only: :show
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

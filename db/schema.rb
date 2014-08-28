@@ -35,8 +35,10 @@ ActiveRecord::Schema.define(version: 20140828082430) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "owner"
+    t.integer  "owner_id"
   end
+
+  add_index "courses", ["owner_id"], name: "index_courses_on_owner_id", using: :btree
 
   create_table "enrollments", force: true do |t|
     t.integer  "course_id"

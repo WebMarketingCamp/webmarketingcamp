@@ -1,5 +1,5 @@
 class AddOwnerInCourses < ActiveRecord::Migration
   def change
-    add_column :courses, :owner, :string
+    add_reference :courses, :owner, index: true
   end
 end

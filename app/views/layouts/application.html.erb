@@ -15,11 +15,14 @@
     <div class="container"><!-- container start -->
 
     <%= render 'layouts/nav' %>
+    <div class="notices">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+    <div class="padding_div">
+      <%= yield %>
+    </div>
 
   </div><!-- container end -->
 

@@ -13,5 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.notices {
+  position:absolute;
+  padding-top:50px;
+}
+
+.padding_div{
+  position:relative;
+  top:60px;
+}
