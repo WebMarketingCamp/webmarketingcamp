@@ -1,0 +1,22 @@
+<h1>Question : #<%= @question.id %></h1>
+<h4><em>from this unit : <%= @unit.title %></em></h4>
+
+<br>
+
+<h2><%= @question.content %></h2>
+
+<p><em><%= @question.instructions %></em></p>
+
+<br>
+
+<h2>Your answer :</h2>
+<p>...</p>
+
+<br>
+
+<h2>All questions :</h2>
+<% @others_questions.each do |question| %>
+  <p>
+    <strong><%= link_to question.content, unit_assignment_question_path(@unit, @assignment, question) %></strong>
+  </p>
+<% end %>

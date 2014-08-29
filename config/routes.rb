@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :units do
-    resources :assignments
+    resources :assignments do
+      resources :questions
+    end
   end
 
   resources :guides

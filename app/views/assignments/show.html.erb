@@ -3,3 +3,10 @@
 <br>
 
 <p><strong>Description de l'exercice : </strong><%= @assignment.instructions %></p>
+
+<h2>Questions :</h2>
+<% @assignment.questions.each do |question| %>
+  <p>
+    <strong><%= link_to question.content, unit_assignment_question_path(@unit, @assignment, question) %></strong>
+  </p>
+<% end %>
