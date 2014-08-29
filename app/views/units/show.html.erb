@@ -15,6 +15,6 @@
 <h2>Assignments :</h2>
 <% @unit.assignments.each do |assignment| %>
   <p>
-    <strong>Assignment #<%= link_to assignment.id, unit_assignment_path(@unit, assignment) %></strong>
+    <strong>Assignment #<%= link_to assignment.id, assignment_path(assignment) %></strong>
   </p>
 <% end %>

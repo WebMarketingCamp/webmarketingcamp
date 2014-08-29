@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829092948) do
+ActiveRecord::Schema.define(version: 20140829134214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 20140829092948) do
 
   add_index "guides", ["owner_id"], name: "index_guides_on_owner_id", using: :btree
 
+  create_table "mentor_reviews", force: true do |t|
+    t.text     "content"
+    t.integer  "student_answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mentor_reviews", ["student_answer_id"], name: "index_mentor_reviews_on_student_answer_id", using: :btree
+
   create_table "questions", force: true do |t|
     t.text     "content"
     t.text     "instructions"
@@ -91,6 +100,17 @@ ActiveRecord::Schema.define(version: 20140829092948) do
   end
 
   add_index "questions", ["assignment_id"], name: "index_questions_on_assignment_id", using: :btree
+
+  create_table "student_answers", force: true do |t|
+    t.text     "content"
+    t.integer  "question_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "student_answers", ["question_id"], name: "index_student_answers_on_question_id", using: :btree
+  add_index "student_answers", ["student_id"], name: "index_student_answers_on_student_id", using: :btree
 
   create_table "units", force: true do |t|
     t.string   "title"

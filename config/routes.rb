@@ -12,8 +12,12 @@ Rails.application.routes.draw do
   end
 
   resources :units do
-    resources :assignments do
-      resources :questions
+    resources :assignments, shallow: true do
+      resources :questions, shallow: true do
+        resources :student_answers, shallow: true do
+          resources :mentor_reviews, shallow: true
+        end
+      end
     end
   end
 

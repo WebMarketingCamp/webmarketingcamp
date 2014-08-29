@@ -10,13 +10,32 @@
 <br>
 
 <h2>Your answer :</h2>
-<p>...</p>
+
+<% if @student_answer %>
+  <%= @student_answer.content %>
+  <% else %>
+  You don't have any answers yet.
+<% end %>
+
+<br>
+
+<h2>Your mentor reviews :</h2>
+
+<% if @mentor_reviews %>
+  <% @mentor_reviews.each do |review| %>
+    <p>
+      <strong><%= review.content %></strong>
+    </p>
+  <% end %>
+  <% else %>
+    You don't have any mentor review.
+<% end %>
 
 <br>
 
 <h2>All questions :</h2>
 <% @others_questions.each do |question| %>
   <p>
-    <strong><%= link_to question.content, unit_assignment_question_path(@unit, @assignment, question) %></strong>
+    <strong><%= link_to question.content, question_path(question) %></strong>
   </p>
 <% end %>

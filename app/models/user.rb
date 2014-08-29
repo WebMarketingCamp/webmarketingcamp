@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :enrollments
   has_many :guides
   has_many :assignments
+  has_many :student_answers, foreign_key: :student_id
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
