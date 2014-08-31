@@ -6,7 +6,16 @@ class AccountsController < ApplicationController
   end
 
   def reviews
-    @mentor_reviews = MentorReview.all
+    @student_answers = StudentAnswer.where(student_id: current_user.id)
+
+    @mentor_assignments = Assignment.where(owner_id: current_user.id)
+
+    @mentor_questions = Question.where(assignment_id: @mentor_assignments)
+
+    @mentor_student_answers = StudentAnswer.where(question_id: @mentor_questions)
+
+    ## MentorReview.last.question.assignment.owner
+
   end
 
 end
