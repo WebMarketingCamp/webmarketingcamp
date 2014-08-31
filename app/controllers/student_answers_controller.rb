@@ -4,4 +4,20 @@ class StudentAnswersController < ApplicationController
     @student_answer = StudentAnswer.find(params[:id])
   end
 
+  def create
+    @question = Question.find(params[:question_id])
+    @student_answer = @question.student_answers.create(student_answer_params)
+    @student_answer.student_id = current_user.id
+    @student_answer.question_id = @question.id
+    @student_answer.save
+    flash[:notif] = ">— Your answer has been posted with success! —<"
+    redirect_to question_path(@question)
+  end
+
+  private
+
+  def student_answer_params
+    params.require(:student_answer).permit(:content)
+  end
+
 end

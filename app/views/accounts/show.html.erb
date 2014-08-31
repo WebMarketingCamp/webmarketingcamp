@@ -1,6 +1,14 @@
-<h1>Welcome on your account page.</h1>
+<h1>Welcome <%= current_user.first_name %> on your account page.</h1>
 
-<p>- <%= current_user.email %></p>
-<p>- <%= current_user.first_name %></p>
-<p>- <%= current_user.last_name %></p>
-<p>- <%= current_user.status.capitalize %></p>
+
+<h2>Your account informations :</h2>
+<p>- Email : <%= current_user.email %></p>
+<p>- Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
+<p>- Your are : <%= current_user.status.capitalize %></p>
+
+<% if current_user.status == "student" %>
+    <%= render 'accounts/student_account' %>
+  <% elsif current_user.status == "mentor" %>
+    <%= render 'accounts/mentor_account' %>
+<% end %>
+

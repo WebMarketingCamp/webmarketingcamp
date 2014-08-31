@@ -12,9 +12,15 @@
 <h2>Your answer :</h2>
 
 <% if @student_answer %>
-  <%= @student_answer.content %>
+  <%= link_to @student_answer.content, student_answer_path(@student_answer) %>
   <% else %>
-  You don't have any answers yet.
+  If mentor : There is no answer yet.
+  If student :Answer the question:
+    <%= form_for([@question, @question.student_answers.build]) do |a| %>
+      <p><%= a.label :content %>
+      <%= a.text_field :content %></p>
+      <%= a.submit%>
+    <% end %>
 <% end %>
 
 <br>
@@ -22,13 +28,18 @@
 <h2>Your mentor reviews :</h2>
 
 <% if @mentor_reviews %>
-  <% @mentor_reviews.each do |review| %>
-    <p>
-      <strong><%= review.content %></strong>
-    </p>
-  <% end %>
+    <%= @mentor_reviews.content %>
   <% else %>
-    You don't have any mentor review.
+    If student : You don't have any mentor review.
+<% end %>
+
+<% if @student_answer && !@mentor_reviews %>
+  If mentor : Post you review:
+    <%= form_for([@student_answer, @student_answer.mentor_reviews.build]) do |m| %>
+      <p><%= m.label :content %>
+      <%= m.text_field :content %></p>
+      <%= m.submit%>
+    <% end %>
 <% end %>
 
 <br>

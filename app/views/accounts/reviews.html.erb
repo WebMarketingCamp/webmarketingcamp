@@ -1,0 +1,9 @@
+<h1>Mentor reviews</h1>
+
+<% @mentor_reviews.each do |mentor_review| %>
+  <p>
+    <em>Question : <%= mentor_review.question.content %></em></br>
+    <strong>Student answer : <%= mentor_review.content %> </br></strong>
+  </p>
+<% end %>
+

@@ -1,0 +1,5 @@
+<h2>Your courses :</h2>
+
+<% current_user.enrollments.each do |mentor_enrollment| %>
+  <p><%= link_to mentor_enrollment.course.title, course_path(mentor_enrollment.course) %></p>
+<% end %>

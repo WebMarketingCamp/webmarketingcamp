@@ -1,0 +1,12 @@
+<h1>Student answer:</h1>
+
+<p><em><%= @student_answer.content %></em></p>
+
+</br>
+
+<p>Mentor, post you review:</p>
+  <%= form_for([@student_answer, @student_answer.mentor_reviews.build]) do |m| %>
+    <p><%= m.label :content %>
+    <%= m.text_field :content %></p>
+    <%= m.submit%>
+  <% end %>
