@@ -26,6 +26,13 @@ class User < ActiveRecord::Base
   end
 
 
+  has_attached_file :photo,
+    styles: { medium: "300x300>", thumb: "100x100>", circle: "35x35>" }
+
+  validates_attachment_content_type :photo,
+    content_type: /\Aimage\/.*\z/
+
+
   private
 
   def send_welcome_email
