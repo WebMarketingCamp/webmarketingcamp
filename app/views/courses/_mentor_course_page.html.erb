@@ -1,0 +1,27 @@
+<div>
+  <p class="btn btn-info disabled">Enrolled</p>
+</div>
+
+
+<h2>Le modules du cours</h2>
+
+<% @course.units.reverse.each do |unit| %>
+    <% if current_user.id == unit.user_id %>
+      <p>
+        <strong><%= link_to unit.title, unit_path(unit) %></strong></br>
+        <%= unit.description %>
+      </p>
+    <% else %>
+      <p>
+        <strong><%= unit.title %></strong></br>
+        <%= unit.description %>
+      </p>
+    <% end %>
+  <% end %>
+
+<h2>Les élèves</h2>
+<% @course.users.each do |user| %>
+    <p>
+      <%= user.full_name %>
+    </p>
+  <% end %>

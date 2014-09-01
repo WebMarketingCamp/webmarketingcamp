@@ -1,12 +1,26 @@
-<h2>Your answer :</h2>
-  <%= link_to '>> Mentor, review your student answers', reviews_path %>
+<h2>Your answers to review :</h2>
 
-<br>
+<% @student_answers.each do |student_answer| %>
+  <p><%= student_answer.student.first_name %> <%= student_answer.student.last_name %> :
+    "<%= student_answer.content %>"</br>
+    <% if student_answer.mentor_reviews.first %>
+      Your review : <%= student_answer.mentor_reviews.first.content %>"</br>
+      <em>Options: </em> <%= link_to "edit", edit_mentor_review_path(student_answer.mentor_reviews.first)%>
+      -- <%= link_to "destroy", mentor_review_path(student_answer.mentor_reviews.first), method: :delete %>
+      <% else %>
+      Please review the answer.
+      <%= link_to "Add your review", student_answer_path(student_answer) %></br>
+    <% end %>
 
-<h2>Your mentor review :</h2>
+  </p>
+<% end %>
 
-<% if !@student_answer %>
-    Please wait for the student answer.
+</br>
+
+<% if !@student_answers %>
+    Please wait for answers.
+    <% else %>
+      <%= link_to '>> Mentor, review your student answers', reviews_path %>
 <% end %>
 
 <% if @student_answer && !@mentor_reviews %>

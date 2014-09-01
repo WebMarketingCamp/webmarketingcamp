@@ -1,3 +1,8 @@
+Options: </em><%= link_to "edit", edit_student_answer_path(@student_answer)%>
+-- <%= link_to "destroy", student_answer_path(@student_answer), method: :delete %>
+
+</br>
+
 <% if @student_answer.mentor_reviews.first %>
     <p>Your mentor review:</p>
     <% @student_answer.mentor_reviews.each do |m| %>

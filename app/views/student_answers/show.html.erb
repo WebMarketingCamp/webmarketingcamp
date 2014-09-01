@@ -1,10 +1,6 @@
 <h1>Student answer:</h1>
 
 <p><em><%= @student_answer.content %></em></p>
-</br>Options: </em><%= link_to "edit", edit_student_answer_path(@student_answer)%>
--- <%= link_to "destroy", student_answer_path(@student_answer), method: :delete %>
-
-</br>
 
 <% if current_user.status == "student" %>
     <%= render 'student_answers/student_show_review' %>
