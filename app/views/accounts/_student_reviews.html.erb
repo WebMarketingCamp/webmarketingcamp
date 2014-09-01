@@ -1,11 +1,11 @@
-<h1>Answers to check :</h1>
+<h1>Your mentor reviews :</h1>
 
 <% @student_answers.each do |student_answer| %>
   <strong>Question : <%= link_to student_answer.question.content, question_path(student_answer.question) %></strong></br>
     <em>Student answer : <%= student_answer.content %> </br></em>
     <% if student_answer.mentor_reviews.first %>
-      <em>Mentor answer : <%= student_answer.mentor_reviews.first.content %> </br></em>
+      <em>Mentor answer : <%= student_answer.mentor_reviews.first.content %></em></br>
       <% else %>
       <em>No mentor review yet.</em>
-    <% end %>
+    <% end %></br>
 <% end %>

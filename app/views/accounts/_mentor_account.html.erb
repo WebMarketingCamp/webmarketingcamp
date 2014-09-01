@@ -3,3 +3,16 @@
 <% current_user.enrollments.each do |mentor_enrollment| %>
   <p><%= link_to mentor_enrollment.course.title, course_path(mentor_enrollment.course) %></p>
 <% end %>
+
+<h1>Here last 3 answers your need to review :</h1>
+<% @mentor_student_answers.last(3).each do |a| %>
+  <% if a.mentor_reviews %>
+    <p>Answer : <%=  a.content %></p>
+    <p>Student : <%=  a.student.first_name %> <%=  a.student.last_name %></p>
+    <p>Review : <%=  a.mentor_reviews.first %></p>
+    <p><%= link_to "Add your review", student_answer_path(a) %></p>
+    </br>
+  <% end %>
+<% end %>
+</br>
+<%= link_to '>> View all', reviews_path %>

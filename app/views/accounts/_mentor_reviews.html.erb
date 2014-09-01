@@ -1,11 +1,10 @@
-
-<h2>Here all answers your need to review :</h2>
+<h1>Here all answers your need to review :</h1>
 
 <% @mentor_student_answers.each do |a| %>
   <% if a.mentor_reviews %>
     <p>Answer : <%=  a.content %></p>
     <p>Student : <%=  a.student.first_name %> <%=  a.student.last_name %></p>
-    <p>Student : <%=  a.mentor_reviews.first %></p>
+    <p>Review : <%=  a.mentor_reviews.first %></p>
     <p><%= link_to "Add your review", student_answer_path(a) %></p>
     </br>
   <% end %>

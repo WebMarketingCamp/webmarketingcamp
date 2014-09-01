@@ -10,5 +10,7 @@
     <%= render 'accounts/student_account' %>
   <% elsif current_user.status == "mentor" %>
     <%= render 'accounts/mentor_account' %>
+  <% elsif current_user.status == "admin" %>
+    <%= render 'accounts/mentor_account' %>
 <% end %>
 
