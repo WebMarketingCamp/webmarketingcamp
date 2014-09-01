@@ -4,7 +4,8 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @assignment = @question.assignment
     @unit = @assignment.unit
-    @others_questions = Question.where.not(id: @question.id)
+    @assignment_questions = @assignment.questions
+    @others_questions = @assignment_questions.where.not(id: @question.id)
     @student_answers = @question.student_answers
     @student_answer = @question.student_answers.where(student_id: current_user.id).first
     if @student_answer
