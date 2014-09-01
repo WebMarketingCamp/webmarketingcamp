@@ -16,6 +16,7 @@ class MentorReviewsController < ApplicationController
     @student_answer = StudentAnswer.find(params[:student_answer_id])
     @mentor_review = @student_answer.mentor_reviews.create(mentor_review_params)
     @mentor_review.student_answer_id = @student_answer.id
+    @mentor_review.user_id = current_user.id
     @mentor_review.save
     flash[:notif] = ">— Your mentor review has been posted with success! —<"
     @question = @student_answer.question

@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :guides, foreign_key: :owner_id
   has_many :assignments, foreign_key: :owner_id
   has_many :student_answers, foreign_key: :student_id
+  has_many :mentor_reviews, foreign_key: :user_id
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
