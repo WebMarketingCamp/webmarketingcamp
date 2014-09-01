@@ -22,8 +22,18 @@ class StudentAnswersController < ApplicationController
      @student_answer = StudentAnswer.find(params[:id])
      @student_answer.update(student_answer_params)
      flash[:notif] = ">— Your answer has been updated with success —<"
-     redirect_to account_path
+     @question = @student_answer.question
+     redirect_to question_path(@question)
   end
+
+  def destroy
+     @student_answer = StudentAnswer.find(params[:id])
+     @student_answer.destroy
+     flash[:notice] = "Your answer has been deleted."
+     @question = @student_answer.question
+     redirect_to question_path(@question)
+  end
+
 
   private
 

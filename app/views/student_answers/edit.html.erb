@@ -1,0 +1,16 @@
+Question is :
+<%= @student_answer.question.content %>
+
+</br>
+
+Your answer is :
+<%= @student_answer.content %>
+
+</br></br>
+
+Edit your answer question:
+    <%= form_for @student_answer do |a| %>
+      <p><%= a.label :content %>
+      <%= a.text_field :content %></p>
+      <%= a.submit%>
+    <% end %>

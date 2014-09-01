@@ -2,6 +2,9 @@
 
 <% if @student_answer %>
   <%= link_to @student_answer.content, student_answer_path(@student_answer) %>
+  </br>
+  <em>Options: </em><%= link_to "edit", edit_student_answer_path(@student_answer)%>
+   -- <%= link_to "destroy", student_answer_path(@student_answer), method: :delete %>
   <% else %>
   Please answer the question:
     <%= form_for([@question, @question.student_answers.build]) do |a| %>
@@ -13,7 +16,7 @@
 
 <br>
 
-<h2>Your mentor reviews :</h2>
+<h2>Your mentor review :</h2>
 
 <% if @mentor_reviews %>
     <%= @mentor_reviews.content %>

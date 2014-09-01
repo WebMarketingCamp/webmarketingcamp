@@ -1,0 +1,8 @@
+<% if @student_answer.mentor_reviews.first %>
+    <p>Your mentor review:</p>
+    <% @student_answer.mentor_reviews.each do |m| %>
+      <%= m.content %>
+    <% end %>
+  <% else %>
+    No mentor review yet.
+<% end %>
