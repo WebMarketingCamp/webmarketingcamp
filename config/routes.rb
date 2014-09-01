@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resource :account, only: :show
 
   get '/reviews', :to => "accounts#reviews"
+  get '/questions', :to => "accounts#questions"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

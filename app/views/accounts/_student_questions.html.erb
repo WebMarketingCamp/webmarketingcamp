@@ -1,0 +1,15 @@
+<% @student_answers.each do |a| %>
+  <p>
+    <%= link_to a.question.content, question_path(a.question) %>
+    <% if a %>
+      <br>You have answered
+      <%else %>
+      <br>no answer yet.
+    <% end%>
+    <% if a.mentor_reviews.first %>
+        <br>Mentor review : <%= a.mentor_reviews.count %>
+        <%else %>
+        <br>No review yet.
+    <% end%>
+  </p>
+<% end %>

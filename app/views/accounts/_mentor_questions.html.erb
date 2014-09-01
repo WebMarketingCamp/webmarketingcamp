@@ -1,0 +1,6 @@
+<% @mentor_questions.each do |a| %>
+  <p>
+    <%= link_to a.content, question_path(a) %>
+    <br>Number of student answers : <%= a.student_answers.count %>
+  </p>
+<% end %>
