@@ -14,6 +14,17 @@ class StudentAnswersController < ApplicationController
     redirect_to question_path(@question)
   end
 
+  def edit
+    @student_answer = StudentAnswer.find(params[:id])
+  end
+
+  def update
+     @student_answer = StudentAnswer.find(params[:id])
+     @student_answer.update(student_answer_params)
+     flash[:notif] = ">— Your answer has been updated with success —<"
+     redirect_to account_path
+  end
+
   private
 
   def student_answer_params

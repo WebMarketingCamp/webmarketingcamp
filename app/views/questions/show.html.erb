@@ -9,40 +9,13 @@
 
 <br>
 
-<h2>Your answer :</h2>
-
-<% if @student_answer %>
-  <%= link_to @student_answer.content, student_answer_path(@student_answer) %>
-  <% else %>
-  If mentor : There is no answer yet.
-  If student :Answer the question:
-    <%= form_for([@question, @question.student_answers.build]) do |a| %>
-      <p><%= a.label :content %>
-      <%= a.text_field :content %></p>
-      <%= a.submit%>
-    <% end %>
+<% if current_user.status == "student" %>
+    <%= render 'questions/student_question' %>
+  <% elsif current_user.status == "mentor" %>
+    <%= render 'questions/mentor_question' %>
+  <% elsif current_user.status == "admin" %>
+    <%= render 'questions/mentor_question' %>
 <% end %>
-
-<br>
-
-<h2>Your mentor reviews :</h2>
-
-<% if @mentor_reviews %>
-    <%= @mentor_reviews.content %>
-  <% else %>
-    If student : You don't have any mentor review.
-<% end %>
-
-<% if @student_answer && !@mentor_reviews %>
-  If mentor : Post you review:
-    <%= form_for([@student_answer, @student_answer.mentor_reviews.build]) do |m| %>
-      <p><%= m.label :content %>
-      <%= m.text_field :content %></p>
-      <%= m.submit%>
-    <% end %>
-<% end %>
-
-<br>
 
 <h2>All questions :</h2>
 <% @others_questions.each do |question| %>
