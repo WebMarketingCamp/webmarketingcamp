@@ -1,17 +1,35 @@
-<div class="container"><!-- container start -->
-  <div class="row">
-    <div class="col-xs-12 col-xs-offset-0 ">
+<!-- head assignment -->
+<div class="head-bg-small-rgb center-small-middle">
+  <div class="container"><!-- container start -->
 
-        <h1>Welcome <%= current_user.first_name %> on your account page.</h1>
-
+    <div class="col-xs-3 col-xs-offset-0">
         <% if @user.photo.file? %>
-          <%= image_tag @user.photo.url(:thumb) %>
+          <%= image_tag @user.photo.url(:profile_circle), class: "img img-circle circle-profile-image" %>
         <% end %>
+    </div>
+    <div class="col-xs-9 col-xs-offset-0">
+      <h1 id="tagline" class="head-h1 head-left">
+        Welcome <%= current_user.first_name %>.
+      </h1>
+        <% if current_user.status == "student" %>
+          <p class="white head-left">Welcome <%= current_user.first_name %>, what do you want ot learn this week ?</p>
+        <% elsif current_user.status == "mentor" %>
+        <p class="white head-left">Welcome <%= current_user.first_name %>, who do you want ot mentor this week ?</p>
+        <% elsif current_user.status == "admin" %>
+        <p class="white head-left">Welcome <%= current_user.first_name %>, what do you want ot admin this week ?</p>
+        <% end %>
+    </div>
 
-        <h2>Your account informations :</h2>
-        <p>- Email : <%= current_user.email %></p>
-        <p>- Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
-        <p>- Your are : <%= current_user.status.capitalize %></p>
+  </div>
+</div><!-- container end -->
+<!-- end head assignment -->
+
+
+<div class="container"><!-- container start -->
+
+  <div class="row">
+
+    <div class="col-xs-12 col-xs-offset-0 ">
 
         <% if current_user.status == "student" %>
             <%= render 'accounts/student_account' %>
@@ -22,5 +40,7 @@
         <% end %>
 
     </div><!-- col end -->
+
   </div><!-- row end -->
+
 </div><!-- container end -->

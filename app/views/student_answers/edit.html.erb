@@ -13,8 +13,14 @@
 
         Edit your answer question:
         <%= form_for @student_answer do |a| %>
-          <%= a.label :content %>
-          <%= a.text_area :content, class: "form-control rows='3' little-margin-bottom" %>
+          <p>
+            <%= a.label :content %>
+            <%= a.text_area :content, class: "form-control rows='3' little-margin-bottom" %>
+          </p>
+          <p>
+            <%= a.label :Attach_a_file %>
+            <%= a.file_field :file %>
+          </p>
           <%= a.submit "Submit", class: "btn btn-default btn-primary" %>
         <% end %>
 

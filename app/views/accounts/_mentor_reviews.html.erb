@@ -1,19 +1,34 @@
-<h2>Here all answers your need to review :</h2>
-
+<h2>Here all answers you need to review :</h2>
 <% @mentor_student_answers.each do |a| %>
-  <% if a.mentor_reviews %>
-    <p>Answer : <%=  a.content %></p>
-    <p>Student : <%=  a.student.first_name %> <%=  a.student.last_name %></p>
-    <p>Review : <%=  a.mentor_reviews.first.try(:content) %></p>
-    <p><%= link_to "Add your review", student_answer_path(a) %></p>
+  <% if !a.mentor_reviews.first %>
+    <p>
+      <h3>Student : <%=  a.student.first_name %> <%=  a.student.last_name %></h3>
+      <div class="well">Answer : <%=  a.content %></div>
+      <% if a.mentor_reviews.first %>
+        Review : <%=  a.mentor_reviews.first.try(:content) %></br>
+        <%= link_to "Edit your review", edit_mentor_review_path(a) %>
+        <% else %>
+        Review : <%= link_to "add your review", student_answer_path(a) %>
+      <% end %>
+      </p>
     </br>
   <% end %>
 <% end %>
 
-</br>
 
-<h2>All your student's answers :</h2>
-
+<h2>Here all answers on your units :</h2>
 <% @mentor_student_answers.each do |a| %>
-  <p><%=  a.content %></p>
+  <% if a.mentor_reviews %>
+    <p>
+      <h3>Student : <%=  a.student.first_name %> <%=  a.student.last_name %></h3>
+      <div class="well">Answer : <%=  a.content %></div>
+      <% if a.mentor_reviews.first %>
+        Review : <%=  a.mentor_reviews.first.try(:content) %></br>
+        <%= link_to "Edit your review", edit_mentor_review_path(a) %>
+        <% else %>
+        Review : <%= link_to "add your review", student_answer_path(a) %>
+      <% end %>
+      </p>
+    </br>
+  <% end %>
 <% end %>

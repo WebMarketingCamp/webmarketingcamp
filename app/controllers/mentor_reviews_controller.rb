@@ -18,7 +18,7 @@ class MentorReviewsController < ApplicationController
     @mentor_review.student_answer_id = @student_answer.id
     @mentor_review.user_id = current_user.id
     @mentor_review.save
-    flash[:notif] = ">— Your mentor review has been posted with success! —<"
+    flash[:notice] = ">— Your mentor review has been posted with success! —<"
     @question = @student_answer.question
     redirect_to question_path(@question)
   end
@@ -30,7 +30,7 @@ class MentorReviewsController < ApplicationController
   def update
      @mentor_review = MentorReview.find(params[:id])
      @mentor_review.update(mentor_review_params)
-     flash[:notif] = ">— Your mentor review has been updated with success —<"
+     flash[:notice] = ">— Your mentor review has been updated with success —<"
      @question = @mentor_review.student_answer.question
      redirect_to question_path(@question)
   end

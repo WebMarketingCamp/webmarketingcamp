@@ -30,19 +30,19 @@
         <% if @course.users.exclude?(current_user) %>
             <li class="btn navbar-btn">
               <%= form_for([@course, @course.enrollments.build]) do |b| %>
-                <%= b.submit "Enroll" , :class => 'btn btn-success' %>
+                <%= b.submit "Enroll" , :class => 'btn btn-success btn-margin-top' %>
               <% end %>
             </li>
           <% elsif current_user.status == "mentor" %>
               <li class="btn navbar-btn disabled">
               <%= form_for([@course, @course.enrollments.build]) do |b| %>
-                <%= b.submit "Enrolled" , :class => 'btn btn-info' %>
+                <%= b.submit "Enrolled" , :class => 'btn btn-info btn-margin-top' %>
               <% end %>
             </li>
           <% else %>
             <li class="btn navbar-btn disabled">
               <%= form_for([@course, @course.enrollments.build]) do |b| %>
-                <%= b.submit "Enrolled" , :class => 'btn btn-info' %>
+                <%= b.submit "Enrolled" , :class => 'btn btn-info btn-margin-top' %>
               <% end %>
             </li>
         <%end%>

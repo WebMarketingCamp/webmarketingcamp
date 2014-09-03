@@ -1,20 +1,22 @@
-<h2>Your answers to review :</h2>
+<h2>Student's answers:</h2>
 
 <% @student_answers.each do |student_answer| %>
-  <p><%= student_answer.student.first_name %> <%= student_answer.student.last_name %> :
-    "<%= student_answer.content %>"</br>
+  <p><h3><%= student_answer.student.first_name %> <%= student_answer.student.last_name %> :</h3>
+    <div class="well">"<%= student_answer.content %>"</br>
+      <% if student_answer.file_file_name %>
+        <%= link_to '>> view attached file', student_answer.file.url %></br>
+      <% end %>
+    </div>
     <% if student_answer.mentor_reviews.first %>
-      Your review : <%= student_answer.mentor_reviews.first.content %>"</br>
+      <strong>Your review:</strong> <%= student_answer.mentor_reviews.first.content %>"</br>
       <em>Options: </em> <%= link_to "edit", edit_mentor_review_path(student_answer.mentor_reviews.first)%>
       -- <%= link_to "destroy", mentor_review_path(student_answer.mentor_reviews.first), method: :delete %>
       <% else %>
-      Please review the answer.
-      <%= link_to "Add your review", student_answer_path(student_answer) %></br>
+      <strong>Please review the answer.</strong>
+      <%= link_to ">> add your review", student_answer_path(student_answer) %></br>
     <% end %>
-
   </p>
 <% end %>
-
 </br>
 
 <% if !@student_answers %>

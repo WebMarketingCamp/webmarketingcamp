@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
 
   has_attached_file :photo,
-    styles: { medium: "300x300>", thumb: "100x100>", circle: "35x35>" }
+    styles: { medium: "300x300>", thumb: "100x100>", circle: "35x35#", profile_circle: "180x180#" }
 
   validates_attachment_content_type :photo,
     content_type: /\Aimage\/.*\z/
