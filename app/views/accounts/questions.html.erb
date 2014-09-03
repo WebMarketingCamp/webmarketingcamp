@@ -1,10 +1,20 @@
-<h1>Vos questions :</h1>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
 
-<% if current_user.status == "student" %>
-    <%= render 'accounts/student_questions' %>
-  <% elsif current_user.status == "mentor" %>
-    <%= render 'accounts/mentor_questions' %>
-  <% elsif current_user.status == "admin" %>
-    <%= render 'accounts/mentor_questions' %>
-<% end %>
+
+        <h1>Vos questions :</h1>
+
+        <% if current_user.status == "student" %>
+            <%= render 'accounts/student_questions' %>
+          <% elsif current_user.status == "mentor" %>
+            <%= render 'accounts/mentor_questions' %>
+          <% elsif current_user.status == "admin" %>
+            <%= render 'accounts/mentor_questions' %>
+        <% end %>
+
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->
 

@@ -1,6 +1,14 @@
-Edit your mentor review:
-    <%= form_for @mentor_review do |m| %>
-      <p><%= m.label :content %>
-      <%= m.text_field :content %></p>
-      <%= m.submit%>
-    <% end %>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
+
+      <h1>Edit your mentor review:</h1>
+
+      <%= form_for @mentor_review do |m| %>
+        <%= m.text_area :content, class: "form-control rows='3' little-margin-bottom" %>
+        <%= m.submit "Submit", class: "btn btn-default btn-primary" %>
+      <% end %>
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->

@@ -1,19 +1,119 @@
-<h1><%= @course.title %></h1>
 
-<h2>Course details</h2>
+<!-- head course -->
+<div class="head-bg-medium-rgb center-middle">
 
-<p><strong>Description : </strong><%= @course.description %></p>
-
-</br>
-
-<div>
-
-  <% if @course.users.exclude?(current_user) %>
-      <%= render 'courses/public_course_page' %>
-    <% elsif current_user.status == "mentor" %>
-      <%= render 'courses/mentor_course_page' %>
-    <% else %>
-     <%= render 'courses/enrolled_course_page' %>
-  <%end%>
-
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1 id="tagline" class="head-h1">
+        <%= @course.title %>
+      </h1>
+      <p class="white">
+        4 week course with mentor
+      </p>
+    </div>
+  </div>
 </div>
+<!-- end head course -->
+
+<!-- nav course -->
+<nav class="navbar navbar-default nav-sticky" role="navigation">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#units">Units</a></li>
+        <li><a href="#mentor">Mentor</a></li>
+        <li><a href="#infos">Schedule & Price</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if @course.users.exclude?(current_user) %>
+            <li class="btn navbar-btn">
+              <%= form_for([@course, @course.enrollments.build]) do |b| %>
+                <%= b.submit "Enroll" , :class => 'btn btn-success' %>
+              <% end %>
+            </li>
+          <% elsif current_user.status == "mentor" %>
+              <li class="btn navbar-btn disabled">
+              <%= form_for([@course, @course.enrollments.build]) do |b| %>
+                <%= b.submit "Enrolled" , :class => 'btn btn-info' %>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="btn navbar-btn disabled">
+              <%= form_for([@course, @course.enrollments.build]) do |b| %>
+                <%= b.submit "Enrolled" , :class => 'btn btn-info' %>
+              <% end %>
+            </li>
+        <%end%>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- end nav course -->
+
+
+<!-- start container -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-xs-12 col-xs-offset-0 ">
+      <!-- contenu à mettre -->
+    </div>
+
+      <div id="overview">
+        <h2>Course details</h2>
+
+        <p><strong>Description : </strong><%= @course.description %></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      </div>
+
+      <div id="units">
+
+          <% if @course.users.exclude?(current_user) %>
+              <%= render 'courses/public_course_page' %>
+            <% elsif current_user.status == "mentor" %>
+              <%= render 'courses/mentor_course_page' %>
+            <% else %>
+             <%= render 'courses/enrolled_course_page' %>
+          <%end%>
+
+      </div>
+
+      <div id="mentor">
+        <h2>Course mentors</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      </div>
+
+      <div id="infos">
+        <h2>Course infos & price</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      </div>
+
+
+  </div><!-- row end -->
+
+</div><!-- container end -->

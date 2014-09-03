@@ -1,0 +1,27 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container-image-top{
+  margin-top: 0px;
+}
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+.navbar-default{
+  background-color: #fff;
+  border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-brand {
+  color: #EF6A54;
+}
+
+.navbar-default .navbar-brand, .navbar-default li > a  {
+  line-height: 40px;
+}
+
+a:hover, a:focus {
+  text-decoration: none !important;
+}

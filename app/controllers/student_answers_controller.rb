@@ -10,7 +10,7 @@ class StudentAnswersController < ApplicationController
     @student_answer.student_id = current_user.id
     @student_answer.question_id = @question.id
     @student_answer.save
-    flash[:notif] = ">— Your answer has been posted with success! —<"
+    flash[:notice] = ">— Your answer has been posted with success! —<"
     redirect_to question_path(@question)
   end
 
@@ -21,7 +21,7 @@ class StudentAnswersController < ApplicationController
   def update
      @student_answer = StudentAnswer.find(params[:id])
      @student_answer.update(student_answer_params)
-     flash[:notif] = ">— Your answer has been updated with success —<"
+     flash[:notice] = ">— Your answer has been updated with success —<"
      @question = @student_answer.question
      redirect_to question_path(@question)
   end

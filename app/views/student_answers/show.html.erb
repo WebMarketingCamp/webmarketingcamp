@@ -1,11 +1,20 @@
-<h1>Student answer:</h1>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
 
-<p><em><%= @student_answer.content %></em></p>
+        <h1>Student answer:</h1>
 
-<% if current_user.status == "student" %>
-    <%= render 'student_answers/student_show_review' %>
-  <% elsif current_user.status == "mentor" %>
-    <%= render 'student_answers/mentor_show_student_answer' %>
-  <% elsif current_user.status == "admin" %>
-    <%= render 'student_answers/mentor_show_student_answer' %>
-<% end %>
+        <p><em><%= @student_answer.content %></em></p>
+
+        <% if current_user.status == "student" %>
+            <%= render 'student_answers/student_show_review' %>
+          <% elsif current_user.status == "mentor" %>
+            <%= render 'student_answers/mentor_show_student_answer' %>
+          <% elsif current_user.status == "admin" %>
+            <%= render 'student_answers/mentor_show_student_answer' %>
+        <% end %>
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->
+

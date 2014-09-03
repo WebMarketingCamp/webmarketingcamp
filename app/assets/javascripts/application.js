@@ -16,3 +16,9 @@
 //= require_tree .
 
 //= require bootstrap-sprockets
+
+
+
+ $(document).ready(function(){
+    $(".nav-sticky").sticky({topSpacing:0});
+  });

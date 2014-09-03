@@ -15,14 +15,13 @@
  */
 
 .google-font{
-  font-family: 'Lobster', Arial, serif;
-  font-size: 24px;
+  font-family: 'Lobster', Arial, serif; font-weight: 1°00;
 }
 
-body{
+ body{
   font-size: 16px;
   line-height: 1.6;
-}
+ }
 
 .nav-sticky {
   width: 100%;

@@ -9,8 +9,8 @@
   Please answer the question:
     <%= form_for([@question, @question.student_answers.build]) do |a| %>
       <p><%= a.label :content %>
-      <%= a.text_field :content %></p>
-      <%= a.submit%>
+      <%= a.text_area :content, class: "form-control rows='3' little-margin-bottom" %>
+      <%= a.submit "Submit", class: "btn btn-default btn-primary" %>
     <% end %>
 <% end %>
 

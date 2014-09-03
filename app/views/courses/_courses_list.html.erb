@@ -1,6 +1,31 @@
-<div>
+<!-- courses listing -->
+<% @courses.each do |course| %>
+  <div class="container"><!-- container start -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <img height="105px" width="195px" src="assets/course_image.jpg">
+        </div>
+        <div class="col-md-6">
+          <h4><%= link_to course.title, course_path(course) %></h4>
+          <%= course.description %>
+        </div>
+        <div class="col-md-3 center">
+          <em> course mentored by <%= course.owner.full_name %> </em></br>
+          <img height="42" width="42" src="http://d1ijjxzthis87e.cloudfront.net/static/main/images/homepage_v2/mentors/charlene.280d3d074b14.png">
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<!-- end courses listing -->
 
 
+
+
+
+<!-- OLD COURSE LISTING -->
+<!-- <div>
     <% @courses.each do |course| %>
       <tr>
         <div class="course-block">
@@ -15,6 +40,4 @@
         </div>
       </tr>
     <% end %>
-
-
-</div>
+</div> -->

@@ -1,7 +1,27 @@
-<h1><%= @guide.title %></h1>
+<!-- head guide -->
+<div class="head-bg-small-rgb center-small-middle">
+  <div class="container"><!-- container start -->
+    <div class="col-xs-12 col-xs-offset-0">
+      <h1 id="tagline" class="head-h1 head-left">
+        <%= @guide.title %>
+      </h1>
+    </div>
+  </div>
+</div><!-- container end -->
+<!-- end head guide -->
 
-<h3>Guide</h3>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0">
 
-<p><strong>Description du guide : </strong><%= @guide.description %></p>
+        <h3>Guide description:</h3>
 
-<%= @guide.content.html_safe %>
+        <p><%= @guide.description %></p>
+
+        <div class='center'>
+          <%= @guide.content.html_safe %>
+        </div>
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->

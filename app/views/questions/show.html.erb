@@ -1,25 +1,37 @@
-<h1>Question : #<%= @question.id %></h1>
-<h4><em>from this unit : <%= @unit.title %></em></h4>
+<!-- head question -->
+<div class="head-bg-small-rgb center-small-middle">
+  <div class="container"><!-- container start -->
+    <div class="col-xs-12 col-xs-offset-0">
+      <h1 id="tagline" class="head-h1 head-left">
+        Question : #<%= @question.id %>
+      </h1>
+        <p class="white head-left">From <em><%= link_to "#{@unit.title} - Assignment ##{@assignment.id}", assignment_path(@assignment), class: 'extra-white-link' %></em></p>
+    </div>
+  </div>
+</div><!-- container end -->
+<!-- end head question -->
 
-<br>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
 
-<h2><%= @question.content %></h2>
+        <h2><%= @question.content %></h2>
+        <p><em><%= @question.instructions %></em></p>
+        <% if current_user.status == "student" %>
+            <%= render 'questions/student_question' %>
+          <% elsif current_user.status == "mentor" && current_user.id == @unit.user_id %>
+            <%= render 'questions/mentor_question' %>
+          <% elsif current_user.status == "admin" %>
+            <%= render 'questions/mentor_question' %>
+        <% end %>
 
-<p><em><%= @question.instructions %></em></p>
+        <h2>All questions :</h2>
+        <% @others_questions.each do |question| %>
+          <p>
+            <strong><%= link_to question.content, question_path(question) %></strong>
+          </p>
+        <% end %>
 
-<br>
-
-<% if current_user.status == "student" %>
-    <%= render 'questions/student_question' %>
-  <% elsif current_user.status == "mentor" && current_user.id == @unit.user_id %>
-    <%= render 'questions/mentor_question' %>
-  <% elsif current_user.status == "admin" %>
-    <%= render 'questions/mentor_question' %>
-<% end %>
-
-<h2>All questions :</h2>
-<% @others_questions.each do |question| %>
-  <p>
-    <strong><%= link_to question.content, question_path(question) %></strong>
-  </p>
-<% end %>
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->

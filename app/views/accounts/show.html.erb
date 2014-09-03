@@ -1,17 +1,26 @@
-<h1>Welcome <%= current_user.first_name %> on your account page.</h1>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
 
-<%= image_tag @user.photo.url(:thumb) %>
+        <h1>Welcome <%= current_user.first_name %> on your account page.</h1>
 
-<h2>Your account informations :</h2>
-<p>- Email : <%= current_user.email %></p>
-<p>- Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
-<p>- Your are : <%= current_user.status.capitalize %></p>
+        <% if @user.photo.file? %>
+          <%= image_tag @user.photo.url(:thumb) %>
+        <% end %>
 
-<% if current_user.status == "student" %>
-    <%= render 'accounts/student_account' %>
-  <% elsif current_user.status == "mentor" %>
-    <%= render 'accounts/mentor_account' %>
-  <% elsif current_user.status == "admin" %>
-    <%= render 'accounts/mentor_account' %>
-<% end %>
+        <h2>Your account informations :</h2>
+        <p>- Email : <%= current_user.email %></p>
+        <p>- Name : <%= current_user.first_name %> <%= current_user.last_name %></p>
+        <p>- Your are : <%= current_user.status.capitalize %></p>
 
+        <% if current_user.status == "student" %>
+            <%= render 'accounts/student_account' %>
+          <% elsif current_user.status == "mentor" %>
+            <%= render 'accounts/mentor_account' %>
+          <% elsif current_user.status == "admin" %>
+            <%= render 'accounts/mentor_account' %>
+        <% end %>
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->

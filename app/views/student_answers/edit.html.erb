@@ -1,16 +1,23 @@
-Question is :
-<%= @student_answer.question.content %>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
 
-</br>
+        Question is : <%= @student_answer.question.content %>
 
-Your answer is :
-<%= @student_answer.content %>
+        </br>
 
-</br></br>
+        Your answer is :
+        <%= @student_answer.content %>
 
-Edit your answer question:
-    <%= form_for @student_answer do |a| %>
-      <p><%= a.label :content %>
-      <%= a.text_field :content %></p>
-      <%= a.submit%>
-    <% end %>
+        </br></br>
+
+        Edit your answer question:
+        <%= form_for @student_answer do |a| %>
+          <%= a.label :content %>
+          <%= a.text_area :content, class: "form-control rows='3' little-margin-bottom" %>
+          <%= a.submit "Submit", class: "btn btn-default btn-primary" %>
+        <% end %>
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->

@@ -1,12 +1,30 @@
-<h1>Assignment #<%= @assignment.id %></h1>
-<h4><em>from <%= @assignment.unit.title %></em></h4>
-<br>
+<!-- head assignment -->
+<div class="head-bg-small-rgb center-small-middle">
+  <div class="container"><!-- container start -->
+    <div class="col-xs-12 col-xs-offset-0">
+      <h1 id="tagline" class="head-h1 head-left">
+        Assignment #<%= @assignment.id %>
+      </h1>
+        <p class="white head-left">From <em><%= link_to @assignment.unit.title, unit_path(@assignment.unit), class: 'extra-white-link' %></em></p>
+    </div>
+  </div>
+</div><!-- container end -->
+<!-- end head assignment -->
 
-<p><strong>Description de l'exercice : </strong><%= @assignment.instructions %></p>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
 
-<h2>Questions :</h2>
-<% @assignment.questions.each do |question| %>
-  <p>
-    <strong><%= link_to question.content, question_path(question) %></strong>
-  </p>
-<% end %>
+        <h2>Insctructions :</h2>
+        <p><strong>Description : </strong><%= @assignment.instructions %></p>
+
+        <h2>Questions :</h2>
+        <% @assignment.questions.each do |question| %>
+          <p>
+            <strong><%= link_to question.content, question_path(question) %></strong>
+          </p>
+        <% end %>
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->

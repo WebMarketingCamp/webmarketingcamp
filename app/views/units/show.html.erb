@@ -1,20 +1,41 @@
-<h1><%= @unit.title %></h1>
+<!-- head unit -->
+<div class="head-bg-small-rgb center-small-middle">
+  <div class="container"><!-- container start -->
+    <div class="col-xs-12 col-xs-offset-0">
+      <h1 id="tagline" class="head-h1 head-left">
+        <%= @unit.title %>
+      </h1>
+      <p class="white head-left"><strong>Description : </strong><%= @unit.description %></p>
+    </div>
+  </div>
+</div><!-- container end -->
+<!-- end head unit -->
 
-<h3>Unit details</h3>
+<div class="container"><!-- container start -->
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 ">
 
-<p><strong>Description : </strong><%= @unit.description %></p>
+        <h2>Unit details</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</p>
 
-<h2>Guides :</h2>
-  <% @unit.guides.each do |guide| %>
-    <p>
-      <strong><%= link_to guide.title, guide_path(guide) %></strong></br>
-      <%= guide.description %>
-    </p>
-  <% end %>
+        <h2>Guides :</h2>
+          <% @unit.guides.each do |guide| %>
+            <p>
+              <strong><%= link_to guide.title, guide_path(guide) %></strong></br>
+              <%= guide.description %>
+            </p>
+          <% end %>
 
-<h2>Assignments :</h2>
-<% @unit.assignments.each do |assignment| %>
-  <p>
-    <strong>Assignment #<%= link_to assignment.id, assignment_path(assignment) %></strong>
-  </p>
-<% end %>
+        <h2>Assignments :</h2>
+        <% @unit.assignments.each do |assignment| %>
+          <p>
+            <strong><%= link_to "Assignment ##{assignment.id}", assignment_path(assignment) %></strong>
+          </p>
+        <% end %>
+
+    </div><!-- col end -->
+  </div><!-- row end -->
+</div><!-- container end -->

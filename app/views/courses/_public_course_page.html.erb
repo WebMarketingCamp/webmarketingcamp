@@ -1,9 +1,3 @@
-<div>
-  <%= form_for([@course, @course.enrollments.build]) do |b| %>
-    <%= b.submit "Enroll" , :class => 'btn btn-success' %>
-  <% end %>
-</div>
-
 <h2>Le modules du cours</h2>
 <% @course.units.reverse.each do |unit| %>
     <p>

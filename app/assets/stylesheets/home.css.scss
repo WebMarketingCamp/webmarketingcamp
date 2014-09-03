@@ -1,3 +1,37 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.home-head{
+  background-image: url("background_hands_blankbg_light.png");
+  background-position: center;
+  height: 500px;
+  background-repeat: no-repeat;
+}
+
+.home-head-h1{
+  padding-top: 20px;
+  font-size: 3.25em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.home-head-text{
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.home-head-btn{
+  padding: 15px 30px;
+  font-size: 20px;
+  color: #fff;
+  background-color: transparent;
+  border-color: #cdbfe3;
+  line-height: 1.33;
+  border: 1px solid #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}

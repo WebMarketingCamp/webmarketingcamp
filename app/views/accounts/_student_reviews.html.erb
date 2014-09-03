@@ -1,4 +1,4 @@
-<h1>Your mentor reviews :</h1>
+<h2>Your mentor reviews :</h2>
 
 <% @student_answers.each do |student_answer| %>
   <strong>Question : <%= link_to student_answer.question.content, question_path(student_answer.question) %></strong></br>
