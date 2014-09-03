@@ -4,7 +4,12 @@
 
         <h1>Student answer:</h1>
 
-        <p><em><%= @student_answer.content %></em></p>
+        <p>
+          <em><%= @student_answer.content %></em></br>
+          <% if @student_answer.file_file_name %>
+            <%= link_to '>> view attached file', @student_answer.file.url(:medium) %>
+          <% end %>
+        </p>
 
         <% if current_user.status == "student" %>
             <%= render 'student_answers/student_show_review' %>

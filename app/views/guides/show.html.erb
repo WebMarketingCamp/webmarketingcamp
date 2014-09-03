@@ -5,6 +5,9 @@
       <h1 id="tagline" class="head-h1 head-left">
         <%= @guide.title %>
       </h1>
+      <% if @unit %>
+        <p class="white head-left">From <em><%= link_to "#{@unit.title}", @unit, class: 'extra-white-link' %></em></p>
+      <% end %>
     </div>
   </div>
 </div><!-- container end -->

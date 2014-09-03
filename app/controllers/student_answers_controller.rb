@@ -38,7 +38,7 @@ class StudentAnswersController < ApplicationController
   private
 
   def student_answer_params
-    params.require(:student_answer).permit(:content)
+    params.require(:student_answer).permit(:content, :file)
   end
 
 end

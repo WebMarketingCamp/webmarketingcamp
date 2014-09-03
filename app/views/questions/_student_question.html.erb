@@ -2,14 +2,22 @@
 
 <% if @student_answer %>
   <%= link_to @student_answer.content, student_answer_path(@student_answer) %>
+  <% if @student_answer.file_file_name %>
+    <%= link_to '(view attached file)', @student_answer.file.url %>
+  <% end %>
   </br>
   <em>Options: </em><%= link_to "edit", edit_student_answer_path(@student_answer)%>
    -- <%= link_to "destroy", student_answer_path(@student_answer), method: :delete %>
   <% else %>
   Please answer the question:
     <%= form_for([@question, @question.student_answers.build]) do |a| %>
-      <p><%= a.label :content %>
-      <%= a.text_area :content, class: "form-control rows='3' little-margin-bottom" %>
+      <p>
+        <%= a.label :content %>
+        <%= a.text_area :content, class: "form-control rows='3' little-margin-bottom" %></p>
+      <p>
+        <%= a.label :file %>
+        <%= a.file_field :file %>
+      </p>
       <%= a.submit "Submit", class: "btn btn-default btn-primary" %>
     <% end %>
 <% end %>
