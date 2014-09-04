@@ -74,6 +74,39 @@
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+      <div id="sessions">
+
+        <h2>Course sessions</h2>
+
+          <% @course.course_sessions.each do |course_session| %>
+            <%= course_session.starting_date.to_date %> - <%= course_session.ending_date.to_date %>
+
+                 <% if @course.users.exclude?(current_user) %>
+
+                      <%= form_for([course_session, course_session.enrollments.build]) do |b| %>
+                        <%= b.submit "Enroll" , :class => 'btn btn-success btn-margin-top' %>
+                      <% end %>
+
+                  <% elsif current_user.status == "mentor" %>
+
+                      <%= form_for([course_session, course_session.enrollments.build]) do |b| %>
+                        <%= b.submit "Enrolled" , :class => 'btn btn-info btn-margin-top disabled' %>
+                      <% end %>
+
+                  <% else %>
+
+                      <%= form_for([course_session, course_session.enrollments.build]) do |b| %>
+                        <%= b.submit "Enrolled" , :class => 'btn btn-info btn-margin-top disabled' %>
+                      <% end %>
+
+                <%end%>
+
+
+
+              </br>
+          <% end %>
 
       </div>
 

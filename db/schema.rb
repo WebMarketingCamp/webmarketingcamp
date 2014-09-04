@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903171136) do
+ActiveRecord::Schema.define(version: 20140904164832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20140903171136) do
 
   add_index "assignments", ["owner_id"], name: "index_assignments_on_owner_id", using: :btree
   add_index "assignments", ["unit_id"], name: "index_assignments_on_unit_id", using: :btree
+
+  create_table "course_sessions", force: true do |t|
+    t.datetime "starting_date"
+    t.datetime "ending_date"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_sessions", ["course_id"], name: "index_course_sessions_on_course_id", using: :btree
 
   create_table "course_units", force: true do |t|
     t.integer  "rank"
@@ -52,13 +62,13 @@ ActiveRecord::Schema.define(version: 20140903171136) do
   add_index "courses", ["owner_id"], name: "index_courses_on_owner_id", using: :btree
 
   create_table "enrollments", force: true do |t|
-    t.integer  "course_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_session_id"
   end
 
-  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id", using: :btree
+  add_index "enrollments", ["course_session_id"], name: "index_enrollments_on_course_session_id", using: :btree
   add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id", using: :btree
 
   create_table "guide_units", force: true do |t|

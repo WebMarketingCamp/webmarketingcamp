@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get '/reviews', :to => "accounts#reviews"
   get '/questions', :to => "accounts#questions"
 
+  post 'session/:course_session_id/enroll', :to => "enrollments#create", as: :course_session_enrollments
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

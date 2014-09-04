@@ -14,7 +14,6 @@
   <% else %>
   Please answer the question:
     <%= form_for([@question, @question.student_answers.build]) do |a| %>
-
       <% if @question.kind == "quizz" %>
         <!-- CODE SEULEMENT SI LA QUESTION EST UN QUIZZ -->
         <% @question.question_answers.each do |answer| %>
