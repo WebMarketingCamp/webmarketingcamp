@@ -8,7 +8,7 @@
       <% end %>
     </div>
     <% if student_answer.mentor_reviews.first %>
-      <strong>Your review:</strong> <%= student_answer.mentor_reviews.first.content %>"</br>
+      <strong>Your review:</strong> <%= student_answer.mentor_reviews.first.content %></br>
       <em>Options: </em> <%= link_to "edit", edit_mentor_review_path(student_answer.mentor_reviews.first)%>
       -- <%= link_to "destroy", mentor_review_path(student_answer.mentor_reviews.first), method: :delete %>
       <% else %>

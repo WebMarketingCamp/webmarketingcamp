@@ -18,6 +18,8 @@
 
         <h2><%= @question.content %></h2>
         <p><em><%= @question.instructions %></em></p>
+
+
         <% if current_user.status == "student" %>
             <%= render 'questions/student_question' %>
           <% elsif current_user.status == "mentor" && current_user.id == @unit.user_id %>

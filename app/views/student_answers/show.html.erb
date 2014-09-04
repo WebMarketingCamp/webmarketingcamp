@@ -6,7 +6,7 @@
 
         <p>
           <div class="well">
-            <strong>Student:</strong> <%= @student_answer.student.first_name %> <%= @student_answer.student.last_name %>
+            <strong>Student:</strong> <%= @student_answer.student.first_name %> <%= @student_answer.student.last_name %></br>
             <strong>His answer:</strong> "<%= @student_answer.content %>"</br></br>
             <% if @student_answer.file_file_name %>
               <%= link_to '>> view attached file', @student_answer.file.url(:medium) %>

@@ -14,13 +14,29 @@
   <% else %>
   Please answer the question:
     <%= form_for([@question, @question.student_answers.build]) do |a| %>
-      <p>
-        <%= a.label :your_answer %>
-        <%= a.text_area :content, class: "form-control rows='3' little-margin-bottom" %></p>
-      <p>
-        <%= a.label :Attach_a_file %>
-        <%= a.file_field :file %>
-      </p>
+
+      <% if @question.kind == "quizz" %>
+        <!-- CODE SEULEMENT SI LA QUESTION EST UN QUIZZ -->
+        <% @question.question_answers.each do |answer| %>
+          <div class="radio">
+            <label>
+              <%= a.radio_button :content, answer.content %>
+              <%= answer.content %>
+            </label>
+          </div>
+        <% end %>
+        <!-- CODE SEULEMENT SI LA QUESTION EST UN QUIZZ -->
+      <% elsif @question.kind == "text" %>
+        <!-- CODE SEULEMENT SI LA QUESTION EST UN TEXT -->
+        <p>
+          <%= a.label :your_answer %>
+          <%= a.text_area :content, class: "form-control little-margin-bottom", row: 3 %></p>
+        <p>
+          <%= a.label :Attach_a_file %>
+          <%= a.file_field :file %>
+        </p>
+        <!-- CODE SEULEMENT SI LA QUESTION EST UN TEXT -->
+      <% end %>
       <%= a.submit "Submit", class: "btn btn-default btn-primary" %>
     <% end %>
 <% end %>

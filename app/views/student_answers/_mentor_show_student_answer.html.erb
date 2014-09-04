@@ -1,10 +1,32 @@
 <% if @student_answer.mentor_reviews.first %>
     <p>Mentor, your review is: <%= @student_answer.mentor_reviews.first.content %></p>
+
   <% else %>
+
+    <!-- SI QUESION QUIZZ -->
+    <% if @student_answer.question.kind == "quizz" %>
+      <p>Question answer : <em><%= @true_or_false %></em></p>
+
+    <p>Mentor, post you review:</p>
+    <%= form_for([@student_answer, @student_answer.mentor_reviews.build]) do |m| %>
+      <%= m.label :content %>
+        <% if @true_or_false == "true" %>
+          <%= m.text_area :content, value: "Your answer is #{@true_or_false}.", class: "form-control rows='3' little-margin-bottom" %>
+          <% else %>
+          <%= m.text_area :content, value: "Your answer is #{@true_or_false}. The right answer is : #{@true_answer.content}", class: "form-control rows='3' little-margin-bottom" %>
+        <% end %>
+      <%= m.submit "Submit", class: "btn btn-default btn-primary" %>
+    <% end %>
+    <!-- SI QUESION QUIZZ -->
+    <% elsif @student_answer.question.kind == "text" %>
+    <!-- SI QUESION TEXT -->
     <p>Mentor, post you review:</p>
     <%= form_for([@student_answer, @student_answer.mentor_reviews.build]) do |m| %>
       <%= m.label :content %>
       <%= m.text_area :content, class: "form-control rows='3' little-margin-bottom" %>
       <%= m.submit "Submit", class: "btn btn-default btn-primary" %>
     <% end %>
+    <!-- SI QUESION TEXT -->
+    <% end %>
+
 <% end %>

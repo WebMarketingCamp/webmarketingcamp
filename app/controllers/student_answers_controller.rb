@@ -2,6 +2,17 @@ class StudentAnswersController < ApplicationController
 
   def show
     @student_answer = StudentAnswer.find(params[:id])
+
+    # IF string dans la student answer IS EGAL au string de la question_answer avec le status est TRUE
+    # alors afficher
+    @true_answer = @student_answer.question.question_answers.find_by_status("true")
+    @false_answers = @student_answer.question.question_answers.where(status: "false")
+    if @student_answer.content == @true_answer.content
+      @true_or_false = "true"
+    else
+      @true_or_false = "false"
+    end
+
   end
 
   def create
@@ -16,6 +27,7 @@ class StudentAnswersController < ApplicationController
 
   def edit
     @student_answer = StudentAnswer.find(params[:id])
+    @question = @student_answer.question
   end
 
   def update
